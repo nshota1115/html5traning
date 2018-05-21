@@ -25,7 +25,11 @@ window.onload = () => {
 	//再生ボタン
 	let btnPlay = document.querySelector("#play");
 	btnPlay.addEventListener("click", function(){
-		bear.play();
+	    bear.play();
+	    btnPlay.innerHTML = "Pause";
+	    btnPlay.addEventListener("click", function () {
+	        bear.pause();
+	    });
 	});
 };
 
