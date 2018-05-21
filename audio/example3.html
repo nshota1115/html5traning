@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
@@ -27,12 +27,33 @@ window.onload = () => {
 	//------------------------------------
 	let aroundSing = () => {
 		let bear1   = document.querySelector("#bear1");
+		let bear2   = document.querySelector("#bear2");
+		let bear3   = document.querySelector("#bear3");
 		bear1.play();
 
 		let txtbox1 = document.querySelector("#bear1time");
+		let txtbox2 = document.querySelector("#bear2time");
+		let txtbox3 = document.querySelector("#bear3time");
+
 		bear1.addEventListener("timeupdate", () => {
 			let cur1 = bear1.currentTime;			//現在の再生時間を取得
 			txtbox1.setAttribute("value", cur1);	//テキストボックスの内容を変更
+			if (cur1 >= 3 && cur2 == 0) {
+			    bear2.play();
+			}
+		});
+
+		bear2.addEventListener("timeupdate", () => {
+		    let cur2 = bear2.currentTime;			//現在の再生時間を取得
+		    txtbox2.setAttribute("value", cur2);	//テキストボックスの内容を変更
+		    if (cur2 >= 3 && cur3 == 0) {
+		        bear3.play();
+		    }
+		});
+
+		bear3.addEventListener("timeupdate", () => {
+		    let cur3 = bear3.currentTime;			//現在の再生時間を取得
+		    txtbox3.setAttribute("value", cur3);	//テキストボックスの内容を変更
 		});
 	};
 
